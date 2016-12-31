@@ -27,3 +27,14 @@ PROTO
 https://github.com/golang/protobuf
 
 http://www.grpc.io/
+
+
+
+
+openshift
+
+https://github.com/openshift-s2i/s2i-go.git \
+    --context-dir=1.4/test/test-app openshift/go-14-centos7
+    
+    
+    https://blog.codeship.com/building-minimal-docker-containers-for-go-applications/
