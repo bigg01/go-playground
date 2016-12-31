@@ -1,0 +1,31 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Route
+  metadata:
+    annotations:
+      openshift.io/host.generated: "true"
+    creationTimestamp: null
+    labels:
+      app: go-playgroundgit
+    name: go-playgroundgit
+  spec:
+    host: go-playgroundgit-golang.openshift.ovhome.local
+    port:
+      targetPort: 9090-tcp
+    to:
+      kind: Service
+      name: go-playgroundgit
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2016-12-31T11:14:13Z
+        status: "True"
+        type: Admitted
+      host: go-playgroundgit-golang.openshift.ovhome.local
+      routerName: router
+      wildcardPolicy: None
+kind: List
+metadata: {}

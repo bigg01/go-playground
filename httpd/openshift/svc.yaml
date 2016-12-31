@@ -1,0 +1,26 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: go-playgroundgit
+    name: go-playgroundgit
+  spec:
+    ports:
+    - name: 9090-tcp
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+    selector:
+      app: go-playgroundgit
+      deploymentconfig: go-playgroundgit
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata: {}

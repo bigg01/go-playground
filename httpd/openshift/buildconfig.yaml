@@ -1,0 +1,45 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: go-playgroundgit
+    name: go-playgroundgit
+  spec:
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: go-playgroundgit:latest
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      contextDir: httpd
+      git:
+        uri: https://github.com/bigg01/go-playground.git
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: go-17-centos7:latest
+      type: Source
+    triggers:
+    - github:
+        secret: yAjZN0xJUtdGCMPXNS3r
+      type: GitHub
+    - generic:
+        secret: 9lEe3bf2BTe0DpaIBBZq
+      type: Generic
+    - imageChange: {}
+      type: ImageChange
+    - type: ConfigChange
+  status:
+    lastVersion: 0
+kind: List
+metadata: {}

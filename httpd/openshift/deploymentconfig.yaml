@@ -1,0 +1,64 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: go-playgroundgit
+    name: go-playgroundgit
+  spec:
+    replicas: 1
+    selector:
+      app: go-playgroundgit
+      deploymentconfig: go-playgroundgit
+    strategy:
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        annotations:
+          openshift.io/container.go-playgroundgit.image.entrypoint: '["container-entrypoint","/bin/sh","-c","$STI_SCRIPTS_PATH/usage"]'
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: go-playgroundgit
+          deploymentconfig: go-playgroundgit
+      spec:
+        containers:
+        - image: 172.30.164.131:5000/golang/go-playgroundgit@sha256:0562658825f816c49f5935e199ef7814f9d4fb0d2cd27e8c1db3a472b22315cb
+          imagePullPolicy: Always
+          name: go-playgroundgit
+          ports:
+          - containerPort: 9090
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - go-playgroundgit
+        from:
+          kind: ImageStreamTag
+          name: go-playgroundgit:latest
+          namespace: golang
+      type: ImageChange
+  status: {}
+kind: List
+metadata: {}

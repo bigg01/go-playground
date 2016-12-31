@@ -1,0 +1,48 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2016-12-31T11:07:50Z
+    creationTimestamp: null
+    generation: 2
+    labels:
+      app: go-playgroundgit
+    name: go-17-centos7
+  spec:
+    tags:
+    - annotations:
+        openshift.io/imported-from: bigg01/go-17-centos7
+      from:
+        kind: DockerImage
+        name: 172.30.164.131:5000/golang/go-17-centos7:latest
+      generation: 2
+      importPolicy: {}
+      name: latest
+  status:
+    dockerImageRepository: ""
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: go-playgroundgit
+    name: go-playgroundgit
+  spec:
+    tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: 172.30.164.131:5000/golang/go-playgroundgit:latest
+      generation: null
+      importPolicy: {}
+      name: latest
+  status:
+    dockerImageRepository: ""
+kind: List
+metadata: {}
