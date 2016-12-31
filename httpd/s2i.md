@@ -247,3 +247,26 @@ oc new-app bigg01/go-17-centos7~https://github.com/bigg01/go-playground.git  --
     Build scheduled, use 'oc logs -f bc/go-playgroundgit' to track its progress.
     Run 'oc status' to view your app.
 ```
+
+```
+oc logs -f bc/go-playgroundgit
+Cloning "https://github.com/bigg01/go-playground.git" ...
+	Commit:	fb0f4d7217e6500eebf16c5dae1bc6273af94601 (adchange main go)
+	Author:	Oliver Guggenbuehl <o.guggenbuehl@gmail.com>
+	Date:	Sat Dec 31 12:17:17 2016 +0100
+===> Build started at Sat Dec 31 11:18:07 UTC 2016
+---> Preparing source...
+---> Downloading dependencies...
+main
+---> Building application source...
+main
+===> Build completed at Sat Dec 31 11:18:11 UTC 2016
+===> Elapsed time: 4 seconds
+Pushing image 172.30.164.131:5000/golang/go-playgroundgit:latest ...
+Pushed 4/7 layers, 57% complete
+Pushed 5/7 layers, 71% complete
+Pushed 6/7 layers, 86% complete
+Pushed 7/7 layers, 100% complete
+Push successful```
+```
+```
