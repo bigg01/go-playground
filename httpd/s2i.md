@@ -5,7 +5,7 @@
 
 ```
 
-s2i-go  git clone https://github.com/bigg01/s2i-go.git
+$ git clone https://github.com/bigg01/s2i-go.git
 Klone nach 's2i-go' ...
 remote: Counting objects: 104, done.
 remote: Compressing objects: 100% (3/3), done.
@@ -13,12 +13,10 @@ remote: Total 104 (delta 0), reused 0 (delta 0), pack-reused 101
 Empfange Objekte: 100% (104/104), 29.05 KiB | 0 bytes/s, Fertig.
 Löse Unterschiede auf: 100% (35/35), Fertig.
 Prüfe Konnektivität ... Fertig.
-  fedora-lamp  guo  ~  s2i-go  ls
-s2i-go
-  fedora-lamp  guo  ~  s2i-go  cd s2i-go/
-  fedora-lamp  guo  ~  s2i-go  s2i-go  ls
-1.4  1.5  1.6  1.7  hack  LICENSE  Makefile  README.adoc  s2i
-  fedora-lamp  guo  ~  s2i-go  s2i-go  make build VERSION=1.7
+
+$  cd s2i-go/
+
+$ make build VERSION=1.7
 SKIP_SQUASH=0 VERSIONS="1.4 1.5 1.6 1.7" OS=centos7 VERSION=1.7 BASE_IMAGE_NAME=go OPENSHIFT_NAMESPACES="1.4 1.5 1.6 1.7" hack/build.sh
 -> Building openshift/go-17-centos7 ...
 Sending build context to Docker daemon 155.6 kB
@@ -185,11 +183,9 @@ zip_safe flag not set; analyzing archive contents...
 2016-12-31 11:59:47,523 root         INFO     Squashing finished!
 2016-12-31 11:59:51,413 root         INFO     New squashed image ID is e4462ef66ec0d4007e7d33b403097e992d3763695012ec389b1c0fdeb769f7b8
 2016-12-31 12:01:47,791 root         INFO     Done
-  fedora-lamp  guo  ~  s2i-go  s2i-go 
-  fedora-lamp  guo  ~  s2i-go  s2i-go 
-  fedora-lamp  guo  ~  s2i-go  s2i-go 
-  fedora-lamp  guo  ~  s2i-go  s2i-go 
-  fedora-lamp  guo  ~  s2i-go  s2i-go  docker images
+
+
+$  docker images
 REPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZE
 <none>                                          <none>              e4462ef66ec0        27 minutes ago      660.1 MB
 openshift/go-17-centos7                         latest              559afeabf1df        27 minutes ago      660.1 MB
@@ -207,8 +203,9 @@ docker.io/openshift/origin                      v1.4.0-rc1          991ede2d2ae4
 docker.io/openshift/origin-pod                  v1.4.0-rc1          35c4b9c016c0        5 weeks ago         1.139 MB
 quay.io/prometheus/prometheus                   v1.0.1              62b473b89d8d        5 months ago        43.23 MB
 docker.io/fabric8/prometheus-kubernetes         2.2.157             641cf4e45b1c        8 months ago        58.46 MB
-  fedora-lamp  guo  ~  s2i-go  s2i-go  docker tag 559afeabf1df bigg01/go-17-centos7
-  fedora-lamp  guo  ~  s2i-go  s2i-go  docker push bigg01/go-17-centos7
+
+$ docker tag 559afeabf1df bigg01/go-17-centos7
+$ docker push bigg01/go-17-centos7
 The push refers to a repository [docker.io/bigg01/go-17-centos7]
 efee8d44d9c0: Pushed
 0df7173edada: Pushing [======================>                            ] 123.8 MB/275.8 MB
