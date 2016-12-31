@@ -5,10 +5,13 @@ https://github.com/bigg01/s2i-go
 IDE: 
 https://www.jetbrains.com/go/
 
+
+![arti](go-ide.jpeg)
+
 ![arti](go-build1.jpeg)
 
 
-![arti](openshift-golang1.jpeg)
+![arti](openshift-golang1.jpeg)1
 
 ```
 
