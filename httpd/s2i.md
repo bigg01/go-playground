@@ -1,3 +1,5 @@
+![arti](go-build1.jpeg)
+
 ```
 
 s2i-go  git clone https://github.com/bigg01/s2i-go.git
