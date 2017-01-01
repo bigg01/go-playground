@@ -22,19 +22,19 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 
 	now := time.Now()
 
+	/*
 	host, err := os.Hostname()
-
 	if err != nil {
 		fmt.Println("cannot get hostname panic !!!!")
 		//panic(err)
 	} else {
 		fmt.Println(host)
 	}
-
-	fmt.Println(now)
+	*/
+	host := os.Getenv("HOSTNAME")
 	if host != "" {
-		host = os.Getenv("HOSTNAME")
-		fmt.Println(host)
+
+		host = "na"
 
 	}
 
