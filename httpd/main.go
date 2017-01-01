@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strings"
 	"log"
+	"time"
 )
 
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
@@ -17,10 +18,13 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("key:", k)
 		fmt.Println("val:", strings.Join(v, ""))
 	}
+
+	now := time.Now()
+	fmt.Println(now)
 	var name string
 	name = "oliver go"
 	name2 := "I love Vanessa"
-	fmt.Fprintf(w, "Hello " + name + " " + name2) // send data to client side
+	fmt.Fprintf(w, "Hello " + name + " " + name2 + " " + now.String()) // send data to client side
 }
 
 func main() {
