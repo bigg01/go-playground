@@ -25,6 +25,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	name = "oliver go"
 	name2 := "I love Vanessa"
 	fmt.Fprintf(w, "Hello " + name + " " + name2 + " " + now.String()) // send data to client side
+	//fmt.Fprintf(w, "Hello " + name + " " + name2 ) // send data to client side
 }
 
 func main() {
