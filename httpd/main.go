@@ -24,6 +24,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 
 	host, err := os.Hostname()
 	if err != nil {
+		fmt.Println("cannot get hostname panic !!!!")
 		panic(err)
 	}
 
