@@ -6,6 +6,7 @@ import (
 	"strings"
 	"log"
 	"time"
+	"os"
 )
 
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
@@ -20,11 +21,19 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	}
 
 	now := time.Now()
+
+	host, err := os.Hostname()
+	if err != nil {
+		panic(err)
+	}
+
+
 	fmt.Println(now)
+	fmt.Println(host)
 	var name string
 	name = "oliver go"
 	name2 := "I love Vanessa"
-	fmt.Fprintf(w, "Hello " + name + " " + name2 + " " + now.String()) // send data to client side
+	fmt.Fprintf(w, "Hello " + name + " " + name2 + " " + now.String() + ": " + host) // send data to client side
 	//fmt.Fprintf(w, "Hello " + name + " " + name2 ) // send data to client side
 }
 
