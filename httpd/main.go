@@ -38,10 +38,10 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	var name string
-	name = "oliver go"
-	name2 := "I love Vanessa"
-	fmt.Fprintf(w, "Hello "+name+" "+name2+" "+now.String()+": "+host) // send data to client side
+	//var name string
+	//name = "oliver go"
+	//name2 := "I love Vanessa"
+	fmt.Fprintf(w, "Hello Go test - " + now.String() + ": " +host) // send data to client side
 	//fmt.Fprintf(w, "Hello " + name + " " + name2 ) // send data to client side
 }
 
