@@ -32,11 +32,14 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	}
 	*/
 	host := os.Getenv("HOSTNAME")
+
+	/*
 	if host != "" {
 
 		host = "na"
 
 	}
+	*/
 
 	//var name string
 	//name = "oliver go"
