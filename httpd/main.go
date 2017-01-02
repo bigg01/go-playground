@@ -78,8 +78,8 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 func main() {
 	log.Println("write file")
 
-	test("filename.txt")
-	test2("filename2.txt")
+	test("/tmp/filename.txt")
+	test2("/tmp/filename2.txt")
 
 	log.Println("Starting Server !")
 	http.HandleFunc("/", sayhelloName)       // set router
