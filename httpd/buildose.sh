@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x 
+set -x
 git add main.go
 git commit -m "get hostname"
 git push -u origin master
