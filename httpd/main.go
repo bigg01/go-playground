@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	log "github.com/cihub/seelog"
+	//log "github.com/cihub/seelog"
 )
 
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
@@ -51,8 +51,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	defer log.Flush()
-	log.Info("Starting Server !")
+	log.Println("Starting Server !")
 	http.HandleFunc("/", sayhelloName)       // set router
 	err := http.ListenAndServe(":9090", nil) // set listen port
 	if err != nil {
