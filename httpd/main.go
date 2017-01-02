@@ -69,13 +69,34 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	//var name string
 	//name = "oliver go"
 	//name2 := "I love Vanessa"
-	fmt.Fprintf(w, "<html>" +
-		"<body>" +
-		"<h1>Hello Go test </h1>- "+now.String()+": "+host +
-		"<body></html>")  // send data to client side
+	fmt.Fprintf(w, "<html>"+
+		"<body>"+
+		"<h1>Hello Go test </h1>- "+
+		now.String()+
+		": "+host+
+		"<body></html>") // send data to client side
 	log.Println("Hello Go test - " + now.String() + ": " + host)
 	//fmt.Fprintf(w, "Hello " + name + " " + name2 ) // send data to client side
 
+}
+
+func info(w http.ResponseWriter, r *http.Request) {
+
+	now := time.Now()
+
+	host := os.Getenv("HOSTNAME")
+
+	fmt.Fprintf(w, "<html>"+
+		"<body>"+
+		"<h1>INFO</h1>- "+
+		now.String()+
+		": "+host+
+		"<body></html>") // send data to client side
+	log.Println("INFO test - " + now.String() + ": " + host)
+}
+
+type Friend struct {
+	Fname string
 }
 
 func main() {
@@ -83,9 +104,11 @@ func main() {
 
 	test("/tmp/filename.txt")
 	test2("/tmp/filename2.txt")
-
+	f1 := Friend{Fname: "oliverg"}
+	log.Println(f1.Fname)
 	log.Println("Starting Server !")
 	http.HandleFunc("/", sayhelloName)       // set router
+	http.HandleFunc("/info", info)           // set router
 	err := http.ListenAndServe(":9090", nil) // set listen port
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
