@@ -22,19 +22,26 @@ func check(e error) bool {
 }
 
 func test(filename string) {
+	start := time.Now()
 	d1 := []byte("hello\ngo\n")
 	log.Printf("writeing to file %v", filename)
 	err := ioutil.WriteFile(filename, d1, 0644)
 	check(err)
+	elapsed := time.Since(start)
+	log.Printf("test function took %s", elapsed)
 }
 
 func test2(filename string) {
+	start := time.Now()
 	f, err := os.Create(filename)
 	check(err)
 	defer f.Close()
+	elapsed := time.Since(start)
+	log.Printf("test2 function took %s", elapsed)
 }
 
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
+	start := time.Now()
 	r.ParseForm()       // parse arguments, you have to call this by yourself
 	fmt.Println(r.Form) // print form information in server side
 	fmt.Println("path", r.URL.Path)
@@ -77,6 +84,8 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 		"<body></html>") // send data to client side
 	log.Println("Hello Go test - " + now.String() + ": " + host)
 	//fmt.Fprintf(w, "Hello " + name + " " + name2 ) // send data to client side
+	elapsed := time.Since(start)
+	log.Printf("sayhelloName function took %s", elapsed)
 
 }
 
