@@ -1,0 +1,5 @@
+[source,go]
+----
+p := Parameters{Tenant: "default", Url: "http://localhost:8080"}
+h := NewHawkularClient(p)
+----
